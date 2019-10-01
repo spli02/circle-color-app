@@ -40,8 +40,8 @@ interface ColorState {
 }
 
 class App extends React.Component<{}, ColorState> {
-  constructor() {
-    super({});
+  constructor(props: {}) {
+    super(props);
     this.state = {
       inputColor: ""
     };
@@ -50,7 +50,6 @@ class App extends React.Component<{}, ColorState> {
   colorChange(event: React.FormEvent<HTMLInputElement>) {
     event.preventDefault();
     const getInputColor: string = event.currentTarget.value;
-    // console.log(getInputColor); 
     this.setState({
       inputColor: getInputColor
     });
@@ -60,6 +59,7 @@ class App extends React.Component<{}, ColorState> {
     return (
       <Container>
         <Input 
+        type="text"
         placeholder="Type the color..."
         onChange={ e => this.colorChange(e) } 
         value={ this.state.inputColor }
